@@ -43,8 +43,10 @@
            (number-of-modules (read-number-of-modules in))
            (body (read-body in (- patch-size-in-bytes
                                   *header-size*
-                                  *name-size*))))
+                                  *name-size*
+                                  *module-length-size*))))
       `(:patch-size-in-bytes     ,patch-size-in-bytes
         :patch-name              ,name
         :patch-number-of-modules ,number-of-modules
         :patch-body              ,body))))
+

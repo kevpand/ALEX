@@ -1,7 +1,7 @@
-(defpackage alex
+(defpackage alex/main
   (:use :cl))
 
-(in-package :alex)
+(in-package :alex/main)
 
 (defparameter *file-length-in-bytes* (expt 2 15))
 (defparameter *header-size* 4)

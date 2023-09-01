@@ -5,7 +5,8 @@
   (:export #:read-patch
            #:read-patch-from-file
            #:write-patch
-           #:write-patch-to-file))
+           #:write-patch-to-file
+           #:+file-length+))
 
 (in-package #:alex/debug)
 

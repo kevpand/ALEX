@@ -20,7 +20,7 @@
                     0 0 0 0
                     0 0 0 0))
            (stream (alex/tests/util:make-test-binary-input-stream bytes)))
-      (ok (equalp #2A((8 0 0 0)
+      (ok (equalp #2A((9 0 0 0)
                       (102 111 111 32)
                       (98 97 114 0)
                       (0 0 0 0)

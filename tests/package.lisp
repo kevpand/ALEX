@@ -2,7 +2,8 @@
   (:nicknames #:alex/tests)
   (:use #:cl)
   (:import-from #:rove)
-  (:import-from #:alex/tests/debug))
+  (:import-from #:alex/tests/debug)
+  (:export #:run-all-tests))
 
 (in-package #:alex/tests)
 
@@ -10,5 +11,7 @@
   '(:alex/tests/debug))
 
 (defun run-all-tests ()
-  (dolist (suite *test-suites*)
-    (rove:run-suite suite)))
+  (rove/core/suite::run-test-functions
+    (list (lambda ()
+            (dolist (suite *test-suites*)
+              (rove:run-suite suite))))))

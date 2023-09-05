@@ -10,9 +10,9 @@
 
 (in-package #:alex/debug)
 
-(define-constant +word-length+ 4 :test #'eql)
+(defconstant +word-length+ 4)
 
-(define-constant +file-length+ (expt 2 15) :test #'eql)
+(defconstant +file-length+ (expt 2 15))
 
 (defun read-header (in)
   (loop for i from 0 below +word-length+

@@ -5,7 +5,8 @@
   :version "0.1.0"
   :author "Kevin Anderson"
   :license "LLGPL v2.1"
-  :depends-on ("alex/package")
+  :depends-on ("alexandria"
+               "alex/package")
   :description "Tool to help manage ZOIA patches"
   :in-order-to ((test-op (test-op "alex/tests"))))
 
@@ -13,7 +14,9 @@
   :class :package-inferred-system
   :author "Kevin Anderson"
   :license "LLGPL v2.1"
-  :depends-on ("alex/tests/package")
+  :depends-on ("rove"
+               "trivial-gray-streams"
+               "alex/tests/package")
   :description "Test system for alex"
   :perform (test-op (op c) (symbol-call
                             :alex/tests/package

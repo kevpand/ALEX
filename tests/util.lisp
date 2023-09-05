@@ -36,6 +36,5 @@
 
 (defmethod stream-write-byte ((stream test-binary-output-stream) integer)
   (with-slots (buff) stream
-    (progn
-      (vector-push-extend integer buff)
-      integer)))
+    (vector-push-extend integer buff)
+    integer))

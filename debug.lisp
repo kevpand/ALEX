@@ -1,7 +1,5 @@
 (uiop:define-package #:alex/debug
   (:use #:cl)
-  (:import-from #:alexandria
-                #:define-constant)
   (:export #:read-patch
            #:read-patch-from-file
            #:write-patch

@@ -1,17 +1,16 @@
 (uiop:define-package #:alex/examples/axioms
   (:use #:cl)
-  (:import-from #:alexandria
-                #:define-constant)
+  (:import-from #:alex/util
+                #:defexample)
   (:export #:+blank-patch+
            #:+name-only+))
 
 (in-package #:alex/examples/axioms)
 
-(define-constant +blank-patch+
-                 #2A((0 0 0 0))
-                 :test #'equalp)
+(defexample +blank-patch+
+  #2A((0 0 0 0)))
 
-(define-constant +name-only+
+(defexample +name-only+
   #2A(
       ;; Header
       (9 0 0 0)
@@ -28,5 +27,4 @@
       ;; Modules
       (0 0 0 0)
       (0 0 0 0)
-      (0 0 0 0))
-  :test #'equalp)
+      (0 0 0 0)))

@@ -1,7 +1,7 @@
 (uiop:define-package #:alex/examples/modules/audio-input
   (:use #:cl)
-  (:import-from #:alexandria
-                #:define-constant)
+  (:import-from #:alex/util
+                #:defexample)
   (:export #:+red-left+
            #:+red-right+
            #:+red-stereo+
@@ -11,7 +11,7 @@
 
 (in-package #:alex/examples/modules/audio-input)
 
-(define-constant +red-left+
+(defexample +red-left+
   #2A(
       ;; Header
       (24 0 0 0)
@@ -54,10 +54,9 @@
       (0 0 0 0)
 
       ;; Color
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))
 
-(define-constant +red-right+
+(defexample +red-right+
   #2A(
       ;;;; Header
       (24 0 0 0)
@@ -98,10 +97,9 @@
       (0 0 0 0)
 
       ;;;; Color
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))
 
-(define-constant +red-stereo+
+(defexample +red-stereo+
   #2A(
       ;;;; Header
       (24 0 0 0)
@@ -141,10 +139,9 @@
       (0 0 0 0)
 
       ;;;; Color
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))
 
-(define-constant +all-colors+
+(defexample +all-colors+
   #2A(
       ;;;; Size Header
       (234 0 0 0)
@@ -522,10 +519,9 @@
       (14 0 0 0)
 
       ;; White
-      (7 0 0 0))
-  :test #'equalp)
+      (7 0 0 0)))
 
-(define-constant +red-left-mono-second-page+
+(defexample +red-left-mono-second-page+
   #2A(
       ;;;; Size header
       (24 0 0 0)
@@ -566,10 +562,9 @@
       (0 0 0 0)
 
       ;;;; Colors
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))
 
-(define-constant +red-left-mono-third-page+
+(defexample +red-left-mono-third-page+
   #2A(
       ;;;; Header size
       (24 0 0 0)
@@ -609,5 +604,4 @@
       (0 0 0 0)
 
       ;;;; Colors
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))

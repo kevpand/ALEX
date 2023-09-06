@@ -1,7 +1,7 @@
 (uiop:define-package #:alex/examples/modules/audio-output
   (:use #:cl)
-  (:import-from #:alexandria
-                #:define-constant)
+  (:import-from #:alex/util
+                #:defexample)
   (:export #:+red-no-gain-left+
            #:+red-no-gain-right+
            #:+red-no-gain-stereo+
@@ -9,7 +9,7 @@
 
 (in-package #:alex/examples/modules/audio-output)
 
-(define-constant +red-no-gain-left+
+(defexample +red-no-gain-left+
   #2A(
       ;;;; Size header
       (24 0 0 0)
@@ -45,10 +45,9 @@
       (0 0 0 0)
 
       ;;;; Colors
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))
 
-(define-constant +red-no-gain-right+
+(defexample +red-no-gain-right+
   #2A(
       ;;;; Size header
       (24 0 0 0)
@@ -84,10 +83,9 @@
       (0 0 0 0)
 
       ;;;; Colors
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))
 
-(define-constant +red-no-gain-stereo+
+(defexample +red-no-gain-stereo+
   #2A(
       ;;;; Size header
       (24 0 0 0)
@@ -123,10 +121,9 @@
       (0 0 0 0)
 
       ;;;; Colors
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))
 
-(define-constant +red-gain-left+
+(defexample +red-gain-left+
   #2A(
       ;;;; Size header
       (25 0 0 0)
@@ -163,5 +160,4 @@
       (0 0 0 0)
 
       ;;;; Colors
-      (3 0 0 0))
-  :test #'equalp)
+      (3 0 0 0)))

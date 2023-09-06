@@ -1,9 +1,7 @@
 (uiop:define-package #:alex/debug
   (:use #:cl)
   (:export #:read-patch
-           #:read-patch-from-file
            #:write-patch
-           #:write-patch-to-file
            #:+file-length+))
 
 (in-package #:alex/debug)
@@ -21,7 +19,13 @@
         finally
            (return (values patch-length bytes))))
 
-(defun read-patch (in)
+(defgeneric read-patch (in)
+  (:documentation "Read a patch from an input source"))
+
+(defgeneric write-patch (patch out)
+  (:documentation "Write a patch to a source"))
+
+(defmethod read-patch ((in stream))
   (multiple-value-bind (patch-length header-bytes) (read-header in)
     (let ((words (cons header-bytes
                        (loop for i from 1 below patch-length
@@ -33,7 +37,7 @@
                         +word-length+)
                   :initial-contents words))))
 
-(defun write-patch (patch out)
+(defmethod write-patch (patch (out stream))
   (loop with size = (array-total-size patch)
         for i from 0 below +file-length+
         if (< i size)
@@ -43,15 +47,15 @@
           do
              (write-byte 0 out)))
 
-(defun read-patch-from-file (file)
-  (with-open-file (in file
-                      :element-type '(unsigned-byte 8))
-    (read-patch in)))
+(defmethod read-patch ((in pathname))
+  (with-open-file (input-stream in
+                                :element-type '(unsigned-byte 8))
+    (read-patch input-stream)))
 
-(defun write-patch-to-file (patch file)
-  (with-open-file (out file
-                       :direction :output
-                       :element-type '(unsigned-byte 8)
-                       :if-does-not-exist :create
-                       :if-exists :supersede)
-    (write-patch patch out)))
+(defmethod write-patch (patch (out pathname))
+  (with-open-file (output-stream out
+                                 :direction :output
+                                 :element-type '(unsigned-byte 8)
+                                 :if-does-not-exist :create
+                                 :if-exists :supersede)
+    (write-patch patch output-stream)))

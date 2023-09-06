@@ -6,6 +6,7 @@
   :author "Kevin Anderson"
   :license "LLGPL v2.1"
   :depends-on ("alexandria"
+               "trivial-gray-streams"
                "alex/package")
   :description "Tool to help manage ZOIA patches"
   :in-order-to ((test-op (test-op "alex/tests"))))
